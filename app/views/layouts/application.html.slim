@@ -12,9 +12,12 @@ html
       = notice
     p.alert 
       = alert 
-
     - if current_user
       = link_to 'Sign out', destroy_user_session_path, method: :delete
+      - if logged_in?(:admin)
+        br
+        br
+        = link_to 'Users', admin_users_path
     - else
       = link_to "Sign In", new_user_session_path
       | #{"  "}

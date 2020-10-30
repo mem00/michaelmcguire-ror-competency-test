@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   root to: "categories#index"
 
   resources :categories, only: [:index]
+  
+  namespace :admin do
+    resources :users
+  end
 
 end
