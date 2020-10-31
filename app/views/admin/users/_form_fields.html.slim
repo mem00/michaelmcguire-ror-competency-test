@@ -1,0 +1,19 @@
+div
+  input type="email" value="#{@user.email}" required="required" placeholder="Email" name="user[email]"
+br
+- if action_name == "new"
+  div
+    input minlength="6" type="password" placeholder="Password" name="user[password]" required="required"
+- else
+  div
+    input minlength="6" type="password" placeholder="Password" name="user[password]" 
+    | (leave blank if you don't want to change it)
+br
+div
+  select name="user[roles]" required="true"
+    - User::ROLES.each do |role|
+      - if @user.role == role
+        option selected="selected" value="#{role}" #{role}
+      - else 
+        option value="#{role}" #{role}
+br

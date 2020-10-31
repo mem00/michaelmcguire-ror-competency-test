@@ -1,12 +1,30 @@
 doctype html
 html
   head
-    title CompetencyTest
+    title Competency Test
     = csrf_meta_tags
     = csp_meta_tag
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    p.notice 
+      = notice
+    p.alert 
+      = alert 
+    - if current_user
+      = link_to 'Sign out', destroy_user_session_path, method: :delete
+      br
+      - if logged_in?(:admin, :editor)
+        = link_to 'New Article', new_article_path
+      - if logged_in?(:admin)
+        br
+        br
+        = link_to 'Users', admin_users_path
+    - else
+      = link_to "Sign In", new_user_session_path
+      | #{"  "}
+      = link_to "Sign Up", new_user_registration_path
+
     = yield
 
