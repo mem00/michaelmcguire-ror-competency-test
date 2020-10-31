@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-unless User.find_by_email("admin@admin1.com").present?
+unless User.find_by_email("admin@articles.com").present?
   user = User.new
-  user.email = "admin@admin1.com"
-  user.password = "password"
+  user.email = "admin@articles.com"
+  user.password = "123456"
   user.roles = "admin"
   user.save!
 end

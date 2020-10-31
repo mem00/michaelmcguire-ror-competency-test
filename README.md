@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ruby 2.6.3
+Rails 6.0.3.4
 
-Things you may want to cover:
+Run `bundle install`
+Run `yarn install`
 
-* Ruby version
+Set up database `rake db:create`
+Run migrations `rake db:migrate`
+Seed data `rake db:seed`
 
-* System dependencies
+login with admin@articles.com -- password: 123456
+to edit user privelages, by default if you sign up you will not be an editor user
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
