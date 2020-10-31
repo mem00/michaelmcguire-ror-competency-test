@@ -1,6 +1,8 @@
 class Admin::UsersController < ApplicationController
   before_action :check_admin
   before_action :set_user, except: [:index, :new, :create]
+  access admin: :all
+  access [:user, :editor] => :all, message: "You shall not pass"
 
   def index
     @users = User.all
