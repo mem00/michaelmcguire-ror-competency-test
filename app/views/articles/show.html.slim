@@ -1,0 +1,7 @@
+h2 #{@article.title}
+p #{@article.content}
+
+- if belongs_to_user_or_is_admin @article
+  = link_to  "Edit", edit_article_path(@article)
+  br
+  = link_to 'Delete', article_path, method: :delete

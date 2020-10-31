@@ -1,4 +1,9 @@
 - @categories.each do |category|
-  h3 #{category.name}
-  - category.articles.each do |article|
-    h6 #{article.title}
+  h3 
+    = link_to "#{category.name}", category_path(category)
+  - category.articles.first(3).each do |article|
+    div
+    - if current_user
+      =link_to "#{article.title}", article_path(article)
+    - else 
+      =link_to "#{article.title}", new_user_session_path

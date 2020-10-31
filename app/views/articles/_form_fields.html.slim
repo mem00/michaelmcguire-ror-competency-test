@@ -1,0 +1,15 @@
+div
+  input type="text" value="#{@article.title}" required="required" placeholder="Title" name="article[title]"
+br
+div
+  textarea type="text" rows="7" placeholder="Content" name="article[content]" required="required" 
+    |#{@article.content}
+br
+div
+  select name="article[category_id]" required="true"
+    - @categories.each do |category|
+      - if @article.category == category
+        option selected="selected" value="#{category.id}" #{category.name}
+      - else 
+        option value="#{category.id}" #{category.name}
+br
