@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
+  access admin: :all
   before_action :check_admin
   before_action :set_user, except: [:index, :new, :create]
-  access admin: :all
   access [:user, :editor] => :all, message: "You shall not pass"
 
   def index
@@ -33,7 +33,6 @@ class Admin::UsersController < ApplicationController
   rescue => e
     puts "Error: #{e}"
   end
-
 
   private
 

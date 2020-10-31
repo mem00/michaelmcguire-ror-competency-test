@@ -1,9 +1,12 @@
 class ArticlesController < ApplicationController
+  access admin: :all
+  access user: :show
   before_action :set_article, except: [:index, :new, :create]
-  before_action :check_user, except: [:show]
-  before_action only: [:destroy, :edit] do
-    belongs_to_user_or_is_admin @article
+  before_action :check_editor, only: [:new, :create]
+  before_action only: [:destroy, :edit, :update] do
+    belongs_to_editor_user_or_is_admin @article
   end
+  access [:user, :editor] => :all, message: "You shall not pass"
   
   def show
   end

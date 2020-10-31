@@ -15,7 +15,8 @@ html
     - if current_user
       = link_to 'Sign out', destroy_user_session_path, method: :delete
       br
-      = link_to 'New Article', new_article_path
+      - if logged_in?(:admin, :editor)
+        = link_to 'New Article', new_article_path
       - if logged_in?(:admin)
         br
         br
