@@ -10,6 +10,9 @@ Set up database `rake db:create`
 Run migrations `rake db:migrate`
 Seed data `rake db:seed`
 
+Run tests `rails test`
+Run system tests `rails test:system`
+
 login with admin@articles.com -- password: 123456
 to edit user privelages, by default if you sign up you will not be an editor user
 
