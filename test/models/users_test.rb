@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserTest < ActiveSupport::TestCase
+class UsersTest < ActiveSupport::TestCase
   test "user is admnin" do
     user = User.new
     user.email = "test@test.com"
